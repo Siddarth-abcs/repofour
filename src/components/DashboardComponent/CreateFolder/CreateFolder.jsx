@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useSelector, shallowEqual, useDispatch } from 'react-redux'
 import { createFolder } from "../../../redux/actionCreators/fileFolderActionCreator";
+import {toast} from "react-toastify";
 
 const CreateFolder = ({ setIsCreateFolderModalOpen }) => {
     const [folderName, setFolderName] = useState("");
@@ -49,13 +50,13 @@ const CreateFolder = ({ setIsCreateFolderModalOpen }) => {
                     // console.log(data)
                     dispatch(createFolder(data))
             }else{
-                    alert("folder already predent")
+                toast.error("folder already predent")
                 }
             }else {
-                alert("Folder name must be at least 3 characters")
+                toast.error("Folder name must be at least 3 characters")
             }
         }else {
-            alert("folder name cannot empty")
+            toast.error("folder name cannot empty")
         }
     }
 

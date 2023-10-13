@@ -14,7 +14,7 @@ function LoginForm () {
   const handleSubmit = (e) => {
     e.preventDefault();
     if(!email || !password){
-      alert("fill all fields");
+      ("fill all fields");
       return;
     }
 

@@ -1,6 +1,8 @@
-import { Route, Routes } from "react-router-dom"
-import { useDispatch } from "react-redux"
-import { useEffect } from "react"
+import { Route, Routes } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css"
 
 import HomePage from "./pages/HomePage/HomePage"
 import Login from "./pages/AuthPages/Login/Login"
@@ -20,7 +22,8 @@ const App = () => {
 
   return (
     <>
-      <div>
+      <div className="App">  
+        <ToastContainer />
         <Routes>
           <Route path="/" element={<HomePage/>}/>
           <Route path="/login" element={<Login/>}/>

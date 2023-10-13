@@ -1,11 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector, shallowEqual } from 'react-redux';
-import './Subbar.css'
 import { Link } from 'react-router-dom';
 
 import { changeFolder } from "../../../redux/actionCreators/fileFolderActionCreator";
 
-const Subbar = ({setIsCreateFolderModelOpen}) => {
+const Subbar = ({setIsCreateFolderModelOpen, setIsCreateFileModelOpen, setIsFileUploadModalOpen}) => {
       const navigate = useNavigate();
       const dispatch = useDispatch();
 
@@ -69,20 +68,25 @@ return (
 </nav>
 
 <ul className='navbar-nav ms-auto'>
-        <li className='nav-item '>
-            <button className='btn btn-outline-dark btn-sm'>
+<li className='nav-item '>
+            <button className='btn btn-outline-dark btn-sm'
+            onClick={()=>setIsFileUploadModalOpen(true)}>
             <i class="fa-regular fa-folder mx-2 "></i>
             Upload File
             </button>
         </li>
-        <li className='nav-item mx-2'>
-            <button className='btn btn-outline-dark btn-sm'>
+
+<li className='nav-item mx-2'>
+            <button className='btn btn-outline-dark btn-sm'
+            onClick={()=>setIsCreateFileModelOpen(true)}>
             <i class="fa-regular fa-folder mx-2 "></i>
             Create File
             </button>
         </li>
+
         <li className='nav-item '>
-            <button className='btn btn-outline-dark btn-sm'onClick={()=>setIsCreateFolderModelOpen(true)}>
+            <button className='btn btn-outline-dark btn-sm'
+            onClick={()=>setIsCreateFolderModelOpen(true)}>
             <i class="fa-regular fa-folder mx-2 "></i>
             Create Folder
             </button>

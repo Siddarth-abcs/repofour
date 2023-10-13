@@ -2,6 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import {useDispatch} from 'react-redux'
 import { changeFolder } from '../../../redux/actionCreators/fileFolderActionCreator';
+import {toast} from "react-toastify";
 
 const ShowItems = ({title, items, type}) => {
   const navigate = useNavigate();
@@ -12,7 +13,7 @@ const ShowItems = ({title, items, type}) => {
       dispatch(changeFolder(itemId))
       navigate(`/dashboard/folder/${itemId}`);
     } else {
-      alert("File clicked")
+      toast.error("File clicked")
     }
   }
   return (
@@ -21,7 +22,8 @@ const ShowItems = ({title, items, type}) => {
         <div className='row gap-2 py-4 flex-wrap'>
             {items.map((item,index) => {
                 return( 
-                <p key={index * 55} className='col-md-2 py-3 text-center border d-flex flex-column'
+                <a href={item.data.url} target="_blank">
+                  <p key={index * 55} className='col-md-2 py-3 text-center border d-flex flex-column'
                 onDoubleClick={()=> handleDblClick(item.docId)}
                 >
                   {type === "folder" ? (
@@ -31,6 +33,7 @@ const ShowItems = ({title, items, type}) => {
                   )}
                   {item.data && item.data.name ? item.data.name : 'No Name'} 
                   </p>
+                </a>
                 )
             })}
         </div>

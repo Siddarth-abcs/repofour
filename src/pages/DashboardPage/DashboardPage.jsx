@@ -6,14 +6,18 @@ import Navbar from '../../components/DashboardComponent/Navbar/Navbar';
 import SubBar from '../../components/DashboardComponent/SubBar/SubBar';
 import HomeComponent from '../../components/DashboardComponent/HomeComponent/HomeComponent';
 import CreateFolder from '../../components/DashboardComponent/CreateFolder/CreateFolder'
-import { getFolders } from '../../redux/actionCreators/fileFolderActionCreator';
+import { getFiles, getFolders } from '../../redux/actionCreators/fileFolderActionCreator';
 import FolderComponent from '../../components/DashboardComponent/FolderComponent/FolderComponent';
+import CreateFile from '../../components/CreateFile/CreateFile';
+import UploadFile from '../../components/DashboardComponent/UploadFile/UploadFile';
 
 
 
     function DashboardPage() {
 
       const [isCreateFolderModalOpen, setIsCreateFolderModalOpen] = useState(false);
+      const [isCreateFileModalOpen, setIsCreateFileModalOpen] = useState(false);
+      const [isFileUploadModalOpen, setIsFileUploadModelOpen] = useState(false);
 
       const { isLoggedIn, isLoading, userId } = useSelector(
         (state) => ({
@@ -38,6 +42,7 @@ import FolderComponent from '../../components/DashboardComponent/FolderComponent
       useEffect(() => {
         if(isLoading && userId) {
           dispatch(getFolders(userId));
+          dispatch(getFiles(userId));
         }
       },[isLoading, userId, dispatch]);
 
@@ -46,9 +51,19 @@ import FolderComponent from '../../components/DashboardComponent/FolderComponent
         {isCreateFolderModalOpen && (
           <CreateFolder setIsCreateFolderModalOpen={setIsCreateFolderModalOpen}/>
         )}
+        {isCreateFileModalOpen && (
+          <CreateFile setIsCreateFileModelOpen={setIsCreateFileModalOpen}/>
+        )}
+        {isFileUploadModalOpen && (
+          <UploadFile setIsFileUploadModelOpen={setIsFileUploadModelOpen}/>
+        )}
+        
         <Navbar/>
         <SubBar 
-        setIsCreateFolderModalOpen={setIsCreateFolderModalOpen}/>
+        setIsCreateFolderModelOpen={setIsCreateFolderModalOpen}
+        setIsCreateFileModelOpen={setIsCreateFileModalOpen}
+        setIsFileUploadModalOpen={setIsFileUploadModelOpen}
+        />
         <Routes>
           <Route path="" element={<HomeComponent/>}/> 
           <Route path='folder/:folderId' element={<FolderComponent/>}/>

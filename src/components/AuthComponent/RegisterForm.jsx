@@ -17,11 +17,11 @@ function RegisterForm () {
     const handleSubmit = (e) =>{
         e.preventDefault();
         if(!name || !email || !passwordconfirmation || !Password){
-            alert("plz fill in all felds")
+            ("plz fill in all felds")
             return;
         }       
         if(Password != passwordconfirmation){
-            alert("pwd not match")
+            ("pwd not match")
             return;
         }
 
