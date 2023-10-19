@@ -1,0 +1,57 @@
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+nav{
+  width: 1;
+  height: 80px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(191, 12, 12, 0.19);
+}
+.narbariya-logo{
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+  line-height: inherit;
+}
+.container{
+  height: 80px;
+  font-size: 18px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.img{
+  background-color: blue;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  margin-right: 10px;
+}
+.link{
+  line-height: 80px;
+  display: flex;
+}
+.btnlinks{
+  margin: 1rem;
+}
+
+
+@media only screen and (max-width: 1000px) {
+  .linksa{
+      display: none;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .link{
+      display: none;
+  }
+}

@@ -1,0 +1,110 @@
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Lucida Sans", sans-serif;
+}
+
+.header {
+  background-color: #9933cc;
+  color: #ffffff;
+  padding: 15px;
+}
+
+.header>h1>span{
+  color: white;
+  font-size: 3.5rem;
+}
+.colunm{
+  display: flex;
+  flex-direction: column;
+}  
+
+.menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  margin-top: 2rem;
+}
+
+.menu li {
+  width: 94%;
+  margin: auto;
+  padding: 8px;
+  margin-bottom: 7px;
+  background-color: #33b5e5;
+  color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.menu li:hover {
+  background-color: #0099cc;
+}
+
+.narbariya{
+  margin: 6%;
+}
+
+.aside {
+  margin: auto .5rem 3rem .5rem;
+  background-color: #33b5e5;
+  padding: 15px;
+  color: #ffffff;
+  text-align: center;
+  font-size: 14px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.footer {
+  background-color: #0099cc;
+  color: #ffffff;
+  text-align: center;
+  font-size: 12px;
+  padding: 15px;
+}
+
+span{
+  color: yellow;
+}
+
+.login-link {
+  color: white;
+  text-decoration: none;
+}
+
+/* responsive */
+
+@media only screen and (min-width: 768px) {
+  .colunm{
+    flex-direction: row;
+    margin-top: 2rem;
+  }
+  .menu ul{
+    width: 100%;
+    margin-top: 0rem;
+  }
+ 
+  .narbariya{
+    margin: 1%;
+  }
+  .aside {
+    margin-right: .5rem;
+    margin-bottom: 0rem;
+  }
+  .footer-fixed {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #0099cc;
+    color: #ffffff;
+    text-align: center;
+    font-size: 12px;
+    padding: 15px;
+    z-index: 999; /* Optional: Use this to control the stacking order if needed */
+  }
+  
+}
